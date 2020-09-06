@@ -5,12 +5,12 @@ services:
         ports:
             - "5000:5000"
         volumes:
-            - .:/app
+            - ./app
         environment:
             - REDIS_HOST=redis
+            - REDIS_PORT=6379
         depends_on:
             - redis
     redis:
         image: redis:5.0.7
-        ports:
-            - "6379:6379"
+        command: redis-server
